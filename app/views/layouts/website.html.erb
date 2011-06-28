@@ -22,8 +22,8 @@
 		<li><a href="client.php">Clients</a></li> 
 		<li><a href="#">About Us</a></li> 
 	</ul> 
-</div> 
-  
+</div>   
+   <%= link_to 'Logout', "/logout" if current_user %>
 <div id="content">
    <%= yield %>
 </div>

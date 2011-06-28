@@ -1,4 +1,5 @@
 class WebsiteController < ApplicationController  
+  before_filter :require_user,  :only => [:index]   
   layout 'website'
   
   def servicios
