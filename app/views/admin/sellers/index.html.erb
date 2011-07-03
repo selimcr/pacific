@@ -26,8 +26,7 @@
     <td><%= seller.name %></td>    
     <td><%= seller.account %></td>
     <td><%= link_to image_tag("editar.gif", :border=>0, :alt => "Editar"), :action => 'edit', :id => seller %></td>    
-    <td> <%= link_to 'Destroy', admin_sellers_url, :confirm => 'Are you sure?', :action => 'delete', :id => seller %>
-      <%= link_to image_tag("borrar.gif", :border=>0, :alt => "Borrar"), :method => 'delete', :id => seller %> 
+    <td><%= link_to image_tag("borrar.gif", :border=>0, :alt => "Borrar"), :method => 'delete', :id => seller %> 
     </td>        
   </tr>
 <% end %>
