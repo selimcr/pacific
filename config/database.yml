@@ -2,7 +2,7 @@
 #   gem install sqlite3
 development:
   adapter: mysql
-  database: pacific
+  database: pacific_ror
   username: root
   password: root
   encoding: utf8

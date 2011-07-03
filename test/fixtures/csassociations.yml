@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  customer_id: 1
+  seller_id: 1
+  percentage: 1.5
+
+two:
+  customer_id: 1
+  seller_id: 1
+  percentage: 1.5

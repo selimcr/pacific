@@ -57,12 +57,33 @@ Pacific::Application.routes.draw do
   # match ':controller(/:action(/:id(.:format)))'
   root :to => "website#index"
   
-  resources :user_sessions 
-  match 'login' => "user_sessions#new", :as => :login 
-  match 'logout' => "user_sessions#destroy", :as => :logout
+  # Admin routes   
+  match 'admin' => 'admin/main#index', :as => "admin"
+  namespace :admin do
+    # Directs /admin/products/* to Admin::ProductsController
+    # (app/controllers/admin/products_controller.rb)
+    #resources :products
+    resources :user_sessions
+    resources :users # give us our some normal resource routes for users resource :user, :as => 'account' # a convenience route match 'signup' => 'users#new', :as => :signup
+    resources :customers
+    resources :sellers
+    match '/login' => "user_sessions#new", :as => "login"
+    match '/logout' => "user_sessions#destroy", :as => "logout"
+    match '/dashboard' => "dashboard#show", :as => "dashboard"
+    resource :user, :as => 'account' # a convenience route 
+    match 'signup' => 'users#new', :as => :signup
+    #login 'login', :controller => "sessions", :action => "new"
+    #logout 'logout', :controller => "sessions", :action => "destroy"
+    #dashboard 'dashboard', :controller => "dashboard", :action => "show"
+  end
   
-  resources :users # give us our some normal resource routes for users 
-  resource :user, :as => 'account' # a convenience route 
-  match 'signup' => 'users#new', :as => :signup
+  #namespace :admin do
+  #      resources :user_sessions       
+  #    resources :users # give us our some normal resource routes for users 
+  #    resource :user, :as => 'account' # a convenience route 
+  #    match 'signup' => 'users#new', :as => :signup
+  #end
+  
+  
   
 end

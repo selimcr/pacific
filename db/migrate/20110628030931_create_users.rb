@@ -13,6 +13,16 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean :enable, :default => true 
       t.timestamps 
     end 
+    
+    @user = User.new
+    @user.login = "admin"
+    @user.name = "Administrator"
+    @user.email = "pacific.seda@gmail.com"
+    @user.role = "Admin"
+    @user.enable = true
+    @user.password = "admin"
+    @user.password_confirmation = "admin"
+    @user.save
   end 
   def self.down 
     drop_table :users 

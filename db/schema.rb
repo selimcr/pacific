@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110628030931) do
+ActiveRecord::Schema.define(:version => 20110703042812) do
 
   create_table "activity_log", :id => false, :force => true do |t|
     t.integer "id",                            :null => false
@@ -80,6 +80,27 @@ ActiveRecord::Schema.define(:version => 20110628030931) do
     t.float    "comm",                     :null => false
   end
 
+  create_table "csassociations", :id => false, :force => true do |t|
+    t.integer "customer_id"
+    t.integer "seller_id"
+    t.float   "percentage"
+  end
+
+  create_table "customers", :force => true do |t|
+    t.string   "code",                  :null => false
+    t.string   "name",                  :null => false
+    t.datetime "date"
+    t.float    "initial_capital"
+    t.float    "actual_capital"
+    t.float    "initial_month_capital"
+    t.integer  "level"
+    t.integer  "ctype"
+    t.integer  "percentage"
+    t.integer  "agent"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "master", :force => true do |t|
     t.date   "date",                                      :null => false
     t.string "type1",      :limit => 20,                  :null => false
@@ -99,6 +120,14 @@ ActiveRecord::Schema.define(:version => 20110628030931) do
     t.float   "income",   :null => false
   end
 
+  create_table "movements", :force => true do |t|
+    t.integer  "customer_id"
+    t.float    "amount"
+    t.text     "description"
+    t.integer  "mtype"
+    t.datetime "created_at"
+  end
+
   create_table "profile", :force => true do |t|
     t.string  "name",    :limit => 100, :null => false
     t.integer "writer",                 :null => false
@@ -110,6 +139,13 @@ ActiveRecord::Schema.define(:version => 20110628030931) do
   create_table "seller", :force => true do |t|
     t.string "name",    :limit => 30, :null => false
     t.float  "account",               :null => false
+  end
+
+  create_table "sellers", :force => true do |t|
+    t.string   "name",                        :null => false
+    t.float    "account",    :default => 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sessions", :force => true do |t|

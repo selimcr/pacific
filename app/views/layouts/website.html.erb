@@ -3,35 +3,61 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><%= yield(:title).blank? ? seo_meta_title : yield(:title) %></title>
-<%= stylesheet_link_tag 'default.css'%>
+<%= stylesheet_link_tag 'styles.css'%>
 <%= yield :additional_styles %>
 <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? -%>
 <%= yield :additional_javascripts %>
 </head>
-<body>
-<div id="header" style="float:inherit"><div style="float:left"> <img src="http://www.tecnotekcr.net/logoTecnotek.png" alt="" width="261" height="74" /></div> 
-</div> 
- 
-<div id="menu"> 
-	<ul> 
-		<li><a href="index1.php">Home</a></li> 
-		<li><a href="master.php">Master</a></li> 
-		<li><a href="trades.php">Trades</a></li> 
-		<li><a href="conciliacion.php">Conciliacion</a></li> 
-		<li><a href="report.php">Reports</a></li> 
-		<li><a href="client.php">Clients</a></li> 
-		<li><a href="#">About Us</a></li> 
-	</ul> 
-</div>   
-   <%= link_to 'Logout', "/logout" if current_user %>
-<div id="content">
-   <%= yield %>
-</div>
-  
-  
-<div id="footer">
-	<p>Copyright &copy; 211 <%= seo_meta_title %> . Designed by <a href="http://www.freecsstemplates.org" class="link1">Free CSS Templates</a></p>
-</div>
 
+<body>
+<div id="head">
+ <div id="head_cen">
+  <div id="head_sup" class="head_pad">
+   <p class="search">
+    <label>SEARCH</label>
+    <input name="search" type="text" class="txt" />
+    <input name="search-btn" type="submit" class="btn" value="SEARCH" />
+   </p>
+   <h1 class="logo"><%= link_to 'Inicio', root_url %></h1>
+    
+    <ul>
+     <li><%= link_to 'Inicio', root_url %></li>
+     <li><a href="#">Sobre Nosotros</a></li>
+     <li><a href="#">Contáctenos</a></li>
+     <li><%= link_to 'Área Administrativa', admin_url %></li>
+   </ul>
+   
+  </div>
+ </div>
+</div>
+  
+<div id="content">
+ <div id="content_cen">
+  <div id="content_sup" class="head_pad">
+   <%= yield %>
+  </div>
+ </div>
+</div>
+  
+  
+<div id="foot">
+ <div id="foot_cen">
+ <h6><a href="index.html">mcube</a></h6>
+ <ul>
+     <li><a href="index.html">Home</a></li>
+     <li class="space">|</li>
+     <li><a href="about.html">ABOUT</a></li>
+     <li class="space">|</li>
+     <li><a href="services.html">SERVICES</a></li>
+     <li class="space">|</li>
+     <li><a class="active" href="contact.html">CONTACT</a></li>
+     <li class="space">|</li>
+  	 <li><a href="http://validator.w3.org/check?uri=referer">xHtml</a></li>
+  	 <li class="space">|</li>
+  	 <li><a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a></li>
+   </ul>
+ <p>© Your Copyright Info Here. Designed by: <a href="http://www.templateworld.com" target="_blank">Template World</a></p>
+ </div>
+</div>
 </body>
 </html>

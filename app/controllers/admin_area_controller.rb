@@ -1,6 +1,6 @@
-class WebsiteController < ApplicationController  
-  #before_filter :require_user,  :only => [:index]   
-  layout 'website'
+class AdminAreaController < ApplicationController  
+  before_filter :require_user,  :only => [:index]   
+  
   
   def servicios
     if params[:serviceTab]

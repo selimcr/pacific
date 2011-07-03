@@ -83,6 +83,7 @@ img.left {
 #menuC {
 	width: 778px;
 	margin: 0px auto;
+        z-index: -1000;
 }
 
 #menuC ul {
@@ -229,3 +230,12 @@ img.left {
 #footer a {
 	color: #CCCCCC;
 }
+
+
+.notice {
+	color: #0077dd;
+        font-weight: bold;
+}
+
+tr.odd { background-color: #EEEEEE; font-size: 10px; }
+tr.even { background-color: #CCCCCC; font-size: 10px; }

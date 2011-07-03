@@ -3,12 +3,12 @@ class User < ActiveRecord::Base
     c.merge_validates_uniqueness_of_email_field_options({:scope => "role"})
   end 
   
-  ROLES = %w(staff admin)
+  ROLES = %w(user admin)
 
   scope :alphabetical, :order => "users.name ASC"
   #scope :activated, :conditions => "users.activated_at IS NOT NULL"
   scope :admins, :conditions => ["users.role = ?", 'admin']
-  scope :staff, :conditions => ["users.role = ?", 'staff']
+  scope :staff, :conditions => ["users.role = ?", 'user']
   
   validates_presence_of :name
   validates_confirmation_of :email, :on => :create
