@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110703042812) do
+ActiveRecord::Schema.define(:version => 20110704015959) do
 
   create_table "csassociations", :id => false, :force => true do |t|
     t.integer "customer_id"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(:version => 20110703042812) do
     t.integer  "agent"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "masters", :force => true do |t|
+    t.datetime "date"
+    t.string   "type1"
+    t.string   "type2"
+    t.float    "result"
+    t.float    "percentage"
+    t.float    "fill1"
+    t.float    "fill2"
   end
 
   create_table "movements", :force => true do |t|
@@ -57,6 +67,24 @@ ActiveRecord::Schema.define(:version => 20110703042812) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "trades", :force => true do |t|
+    t.integer  "master_id"
+    t.datetime "filldate"
+    t.string   "mtype"
+    t.string   "ticketBuy"
+    t.string   "ticketSell"
+    t.float    "long_t"
+    t.float    "short_t"
+    t.string   "pair"
+    t.float    "fillBuy"
+    t.float    "fillSell"
+    t.float    "exRt"
+    t.float    "counterCurrBuy"
+    t.float    "counterCurrSell"
+    t.float    "result"
+    t.integer  "first_trade"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login",                                 :null => false

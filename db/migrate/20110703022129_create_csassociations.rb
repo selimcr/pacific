@@ -3,7 +3,7 @@ class CreateCsassociations < ActiveRecord::Migration
     create_table :csassociations, :id => false do |t|      
       t.integer :customer_id
       t.integer :seller_id
-      t.float :percentage
+      t.float :percentage, :limit => 53, :null => true
     end
   end
 

@@ -68,6 +68,7 @@ Pacific::Application.routes.draw do
     resources :customers
     resources :sellers
     resources :movements
+    resources :trades
     match '/movements/search' => "movements#search"
     match '/login' => "user_sessions#new", :as => "login"
     match '/logout' => "user_sessions#destroy", :as => "logout"

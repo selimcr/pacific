@@ -4,9 +4,9 @@ class CreateCustomers < ActiveRecord::Migration
       t.string :code, :null => false
       t.string :name, :null => false
       t.datetime :date
-      t.float :initial_capital
-      t.float :actual_capital
-      t.float :initial_month_capital
+      t.float :initial_capital, :limit => 53, :null => true
+      t.float :actual_capital, :limit => 53, :null => true
+      t.float :initial_month_capital, :limit => 53, :null => true
       t.integer :level
       t.integer :ctype
       t.integer :percentage
